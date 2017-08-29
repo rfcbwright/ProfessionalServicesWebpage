@@ -41,6 +41,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <IncludeIisSettings>false</IncludeIisSettings>
+    <PublishDatabases>false</PublishDatabases>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="ConnectionString-Deployment" Order="1" xmlns="">
+          <Destination Path="Data Source=10.1.9.114%3bInitial Catalog=Tracker_DB%3bPersist Security Info=True%3bUser ID=bwright%3bPassword=200M%24out" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28LocalDB%29\MSSQLLocalDB%3bAttachDbFilename=|DataDirectory|\Tracker_DB.mdf%3bIntegrated Security=True%3bConnect Timeout=30" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\ConnectionString-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -67,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,14 +91,58 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\business-cat-wants-to-know-hows-the-backlog.jpg" />
+    <Content Include="Images\cK2fewh.png" />
+    <Content Include="Images\time-cards-are-due-get-on-it.jpg" />
+    <Content Include="claimform.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\TJTOiGc.png" />
+    <Content Include="timecard.aspx" />
+    <Content Include="newentry.aspx" />
     <Content Include="Web.config" />
+    <Content Include="default.aspx" />
+    <Content Include="backlog.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="claimform.aspx.cs">
+      <DependentUpon>claimform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="claimform.aspx.designer.cs">
+      <DependentUpon>claimform.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="timecard.aspx.cs">
+      <DependentUpon>timecard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="timecard.aspx.designer.cs">
+      <DependentUpon>timecard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="backlog.aspx.cs">
+      <DependentUpon>backlog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="backlog.aspx.designer.cs">
+      <DependentUpon>backlog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newentry.aspx.cs">
+      <DependentUpon>newentry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newentry.aspx.designer.cs">
+      <DependentUpon>newentry.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
